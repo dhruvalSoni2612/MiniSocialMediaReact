@@ -18,9 +18,10 @@ const PostList = () => {
       .then((data) => {
         addInitialPosts(data.posts);
         setFetching(false);
-      });
+      })
+      .catch(() => setFetching(false));
+
     return () => {
-      console.log("Cleaning up UseEffect.");
       controller.abort();
     };
   }, []);
@@ -30,8 +31,9 @@ const PostList = () => {
       {fetching && <Loading />}
       {!fetching && postListItems.length === 0 && <EmptyMsg />}
       {!fetching &&
-        postListItems.map((post) => <Post key={post.id} post={post}></Post>)}
+        postListItems.map((post) => <Post key={post.id} post={post} />)}
     </div>
   );
 };
+
 export default PostList;

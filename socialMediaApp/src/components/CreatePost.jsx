@@ -8,7 +8,6 @@ const CreatePost = () => {
   const titleInputElement = useRef();
   const bodyInputElement = useRef();
   const reactionsInputElement = useRef();
-
   const tagsInputElement = useRef();
 
   let handelOnClick = (event) => {
@@ -72,4 +71,5 @@ const CreatePost = () => {
     </center>
   );
 };
+
 export default CreatePost;
