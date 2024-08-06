@@ -1,5 +1,6 @@
-import { useContext, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { PostListContext } from "../store/Post-list-store";
+import styles from "./CreatePost.module.css"; // Import the CSS Module
 
 const CreatePost = () => {
   const { addPost } = useContext(PostListContext);
@@ -26,49 +27,50 @@ const CreatePost = () => {
 
     addPost(userId, title, body, reactions, tags);
   };
+
   return (
-    <center>
-      <form style={{ margin: "50px" }} onSubmit={handelOnClick}>
+    <div className={styles.container}>
+      <form onSubmit={handelOnClick}>
         <div className="mb-3">
-          <label htmlFor="userId" className="form-label">
+          <label htmlFor="userId" className={styles.formLabel}>
             User Id
           </label>
           <input type="text" id="userId" ref={userIdInputElement} />
         </div>
 
         <div className="mb-3">
-          <label htmlFor="title" className="form-label">
+          <label htmlFor="title" className={styles.formLabel}>
             Title
           </label>
           <input type="text" id="title" ref={titleInputElement} />
         </div>
 
         <div className="mb-3">
-          <label htmlFor="description" className="form-label">
+          <label htmlFor="description" className={styles.formLabel}>
             Description
           </label>
           <input type="text" id="description" ref={bodyInputElement} />
         </div>
 
         <div className="mb-3">
-          <label htmlFor="reactions" className="form-label">
+          <label htmlFor="reactions" className={styles.formLabel}>
             Reactions
           </label>
           <input type="text" id="reactions" ref={reactionsInputElement} />
         </div>
 
         <div className="mb-3">
-          <label htmlFor="tags" className="form-label">
+          <label htmlFor="tags" className={styles.formLabel}>
             Tags
           </label>
           <input type="text" id="tags" ref={tagsInputElement} />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className={styles.btn}>
           Post
         </button>
       </form>
-    </center>
+    </div>
   );
 };
 
